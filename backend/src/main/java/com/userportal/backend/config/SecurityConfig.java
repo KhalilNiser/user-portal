@@ -27,9 +27,8 @@ public class SecurityConfig
             .authorizeHttpRequests( auth -> auth
                 .requestMatchers( HttpMethod.OPTIONS, "/**" ).permitAll()
                 .requestMatchers( "/auth/**" ).permitAll()
-                .requestMatchers( HttpMethod.POST, "/api/leads" ).permitAll()
+                .requestMatchers( "/api/leads", "/api/leads/**" ).permitAll()
                 .requestMatchers( "/h2-console/**" ).permitAll()
-                .requestMatchers( "/error" ).permitAll()
                 .anyRequest().authenticated()
             )
             // Disable default login page
