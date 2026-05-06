@@ -7,6 +7,7 @@ package com.userportal.backend.lead;
  * ============================================================
  */
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 import java.util.List;
 
 
@@ -33,7 +34,7 @@ public class LeadController
 
 
     @PostMapping
-    public Lead createLead( @RequestBody Lead lead )
+    public Lead createLead( @Valid @RequestBody Lead lead )
     {
         return leadService.saveLead( lead );
     }

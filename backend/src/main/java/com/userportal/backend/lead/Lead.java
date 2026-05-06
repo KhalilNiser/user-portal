@@ -2,8 +2,9 @@ package com.userportal.backend.lead;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
-
 
 @Entity
 @Table( name = "leads" )
@@ -13,12 +14,21 @@ public class Lead
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private Long id;
 
+    @NotBlank
     private String name;
+
+    @NotBlank
+    @Email
     private String email;
+
+    @NotBlank
     private String phone;
+
+    @NotBlank
     private String projectType;
 
     @Column( length = 2000 )
+    @NotBlank
     private String message;
 
     private LocalDateTime createdAt;
